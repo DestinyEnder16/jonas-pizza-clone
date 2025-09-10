@@ -1,6 +1,6 @@
 function App() {
   const x = 7;
-  return <div className="h-full bg-stone-700">{x}</div>;
+  return <div className=""></div>;
 }
 
 export default App;

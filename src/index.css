@@ -1,1 +1,21 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+
+  /* primary accents */
+  --color-red: #e63946;
+  --color-chilli: #d72638;
+
+  /* secondary accents */
+  --color-green: #2a9d8f;
+  --color-olive: #6a994e;
+
+  /* complementary tones - used as background upon which other colors become more dominant. */
+  --color-cheese: #f4a261;
+  --color-crust: #e9c46a;
+
+  /* dark contrasts */
+  --color-maroon: #6a040f;
+  --color-charcoal: #1d1d1d;
+}
