@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router";
+import Username from "../features/user/Username";
 
 function Header() {
   const { username } = useSelector((store) => store.user);
@@ -11,7 +12,7 @@ function Header() {
         </Link>
       </span>
 
-      <span className="font-medium">{!username.length ? "" : username}</span>
+      <Username />
     </header>
   );
 }
