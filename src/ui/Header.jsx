@@ -6,12 +6,12 @@ import Cart from "./Cart";
 function Header() {
   const { username } = useSelector((store) => store.user);
   return (
-    <header className="bg-crust text-md fixed top-0 z-50 flex h-min w-full justify-between px-3 py-4 shadow-md">
-      <span>
+    <header className="bg-crust text-md sticky top-0 z-50 flex h-min w-full justify-between px-3 py-4 shadow-md">
+      <nav>
         <Link to={"/"} className="font-semibold outline-none">
           Fast Pizza Co.
         </Link>
-      </span>
+      </nav>
 
       <span>
         <Cart />
