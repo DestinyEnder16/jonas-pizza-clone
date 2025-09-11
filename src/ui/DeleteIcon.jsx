@@ -1,6 +1,13 @@
-function DeleteIcon() {
+import { useDispatch } from "react-redux";
+import { removeItemFromCart } from "../features/cart/cartSlice";
+
+function DeleteIcon({ id }) {
+  const dispatch = useDispatch();
   return (
-    <span className="cursor-pointer">
+    <span
+      className="cursor-pointer"
+      onClick={() => dispatch(removeItemFromCart(id))}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
