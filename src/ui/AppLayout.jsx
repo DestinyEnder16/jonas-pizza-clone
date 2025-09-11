@@ -1,12 +1,16 @@
-import { Outlet } from "react-router";
+import { Outlet, useNavigation } from "react-router";
 import Header from "./Header";
 import Footer from "./Footer";
 
 function AppLayout() {
+  const navigation = useNavigation();
+  const isLoading = navigation.state === "loading";
+
   return (
-    <div className="grid h-lvh grid-rows-[1fr_minmax(900px,1fr)_1fr]">
+    <div className="grid h-screen grid-rows-[auto_1fr_auto]">
+      {isLoading && <p>loading</p>}
       <Header />
-      <main>
+      <main className="h-full">
         <Outlet />
       </main>
       <Footer />
