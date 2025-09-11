@@ -1,9 +1,16 @@
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../ui/Button";
 import { formatCurrency } from "../../utilities/helper";
 import MenuItemPrice from "./MenuItemPrice";
+import { addToCart, itemIsInCart } from "../cart/cartSlice";
+import DeleteIcon from "../../ui/DeleteIcon";
+import Counter from "./Counter";
 
 function MenuItem({ pizzaItem }) {
   const isSoldOut = pizzaItem.soldOut;
+  const isInCart = useSelector(itemIsInCart(pizzaItem.id));
+
+  const dispatch = useDispatch();
   return (
     <li
       className={`shadow-cheese mb-[40px] grid grid-cols-1 gap-5 rounded-2xl px-4 py-4 shadow-md ${isSoldOut && "grayscale-75"}`}
@@ -22,13 +29,25 @@ function MenuItem({ pizzaItem }) {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit.
         </span>
 
-        <span>
+        <div className="mt-3">
           {!isSoldOut ? (
-            <Button type={"primary"}>Add To Cart</Button>
+            !isInCart ? (
+              <Button
+                type={"primary"}
+                onClick={() => dispatch(addToCart(pizzaItem))}
+              >
+                Add To Cart
+              </Button>
+            ) : (
+              <div className="flex gap-3">
+                <Counter quantity={2} />
+                <DeleteIcon />
+              </div>
+            )
           ) : (
             <span className="font-medium">Sold Out</span>
           )}
-        </span>
+        </div>
       </div>
     </li>
   );

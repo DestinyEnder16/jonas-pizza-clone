@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router";
 import Username from "../features/user/Username";
-import Cart from "./Cart";
+import CartIcon from "./CartIcon";
+import { getTotalCartItems } from "../features/cart/cartSlice";
 
 function Header() {
   const { username } = useSelector((store) => store.user);
+  const totalCartItems = useSelector(getTotalCartItems);
   return (
     <header className="bg-crust text-md sticky top-0 z-50 flex h-min w-full justify-between px-3 py-4 shadow-md">
       <nav>
@@ -14,7 +16,7 @@ function Header() {
       </nav>
 
       <span>
-        <Cart />
+        <CartIcon number={totalCartItems} />
       </span>
 
       {username.length > 0 && <Username />}
