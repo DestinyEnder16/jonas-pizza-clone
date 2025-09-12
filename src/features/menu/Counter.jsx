@@ -20,7 +20,7 @@ function Counter({ quantity, id }) {
       >
         -
       </Button>
-      <span className="mx-2 font-medium">{quantity}</span>
+      <span className="mx-2 font-bold">{quantity}</span>
       <Button
         type={"secondary"}
         onClick={() => dispatch(increaseItemQuantity(id))}
