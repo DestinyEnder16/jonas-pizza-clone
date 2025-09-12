@@ -8,7 +8,7 @@ function Header() {
   const { username } = useSelector((store) => store.user);
   const totalCartItems = useSelector(getTotalCartItems);
   return (
-    <header className="bg-crust text-md sticky top-0 z-50 flex h-min w-full justify-between px-3 py-4 shadow-md">
+    <header className="bg-crust text-md sticky top-0 z-50 flex h-min w-full items-center justify-between px-3 py-4 shadow-md">
       <nav>
         <Link to={"/"} className="font-semibold outline-none">
           Fast Pizza Co.

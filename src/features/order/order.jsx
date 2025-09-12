@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTotalCartItems } from "../cart/cartSlice";
 import { clearCart } from "../cart/cartSlice";
 import { useState } from "react";
+import HandleNavigation from "../../ui/HandleNavigation";
 
 const formInputFields = `focus:ring-cheese placeholder:text-charcoal text-charcoal ring-offset-cheese rounded-full border border-white bg-[#eda83fe4] px-4 py-2.5 text-sm ml-4 mb-2 ring-offset-1 font-semibold transition-all duration-300 focus:ring focus:outline-none md:px-4 md:py-3 `;
 
@@ -19,9 +20,11 @@ function Order() {
 
   if (!totalItemsInCart)
     return (
-      <p>
-        Head to our menu to create an order <Link to="/menu"> &larr; Menu</Link>
-      </p>
+      <HandleNavigation
+        message={"Add items to the cart to create an order."}
+        direction={"menu"}
+        level={0}
+      />
     );
 
   function handleSubmit(e) {

@@ -6,6 +6,7 @@ import Button from "../../ui/Button";
 import { getTotalCost } from "./cartSlice";
 import { Link, useNavigate } from "react-router";
 import { formatCurrency } from "../../utilities/helper";
+import HandleNavigation from "../../ui/HandleNavigation";
 
 function Cart() {
   const { cart } = useSelector((state) => state.cart);
@@ -15,10 +16,13 @@ function Cart() {
 
   if (!cart.length) {
     return (
-      <p>
-        cart is empty, visit our menu to eat more pizzas{" "}
-        <Link to={"/menu"}>Back to menu</Link>
-      </p>
+      <HandleNavigation
+        message={
+          "Your cart is currently empty, head to our menu to get your order."
+        }
+        direction={"menu"}
+        level={1}
+      />
     );
   } else {
     console.log(cart);
