@@ -47,6 +47,17 @@ export const getQuantityById = function (id) {
   };
 };
 
+export const getTotalCost = function (state) {
+  if (!state.cart?.cart) return 0; // no cart at all
+
+  const total = state.cart.cart.reduce(
+    (acc, item) => acc + +item.quantity * +item.unitPrice,
+    0,
+  );
+
+  return total;
+};
+
 export const {
   addToCart,
   increaseItemQuantity,

@@ -5,6 +5,7 @@ import Homepage from "./ui/Homepage";
 import Menu from "./features/menu/Menu";
 import { loader as menuLoader } from "./features/menu/Menu";
 import ErrorPage from "./ui/ErrorPage";
+import Cart from "./features/cart/Cart";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
         element: <Menu />,
         loader: menuLoader,
         errorElement: <ErrorPage />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
