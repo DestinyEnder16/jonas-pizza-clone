@@ -4,13 +4,14 @@ import BackBtn from "../../ui/BackBtn";
 import CartItem from "./CartItem";
 import Button from "../../ui/Button";
 import { getTotalCost } from "./cartSlice";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { formatCurrency } from "../../utilities/helper";
 
 function Cart() {
   const { cart } = useSelector((state) => state.cart);
   const total = useSelector(getTotalCost);
-  console.log(total);
+
+  const navigate = useNavigate();
 
   if (!cart.length) {
     return (
@@ -24,7 +25,7 @@ function Cart() {
   }
 
   return (
-    <div className="padding h-full overflow-scroll">
+    <div className="padding h-lvh overflow-scroll">
       <BackBtn />
       <h1 className="text-chilli mt-4 text-center font-semibold">
         Order Summary
@@ -44,7 +45,9 @@ function Cart() {
         </ul>
 
         <div className="self-center">
-          <Button type={"primary"}>Next</Button>
+          <Button type={"primary"} onClick={() => navigate("/order")}>
+            Next
+          </Button>
         </div>
       </aside>
     </div>
